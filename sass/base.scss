@@ -1,10 +1,11 @@
 @import '_reset';
 @import '_variables';
+@import '_media-queries';
 @import '_mixing';
 @import '_button';
 @import '_input';
 @import '_image';
-@import '_grid';
+@import '_grid'; 
 
 .container {
   max-width: 1200px;

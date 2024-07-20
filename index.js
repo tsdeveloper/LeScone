@@ -1,3 +1,4 @@
 import './sass/base.scss';
-
-console.log("Working....");
+let a = 2;
+let b = 3;
+console.log(`Result: ${b}`);
