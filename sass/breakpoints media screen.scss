@@ -1,0 +1,43 @@
+$breakpoints: (
+  'to-small'      : ( max-width:  766px ),
+  'small'         : ( min-width:  767px ),
+  'to-medium'     : ( max-width:  991px ),
+  'medium'        : ( min-width:  992px ),
+  'to-large'      : ( min-width: 1199px ),
+  'large'         : ( min-width: 1200px ),
+  'to-x-large'    : ( min-width: 1599px ),
+  'x-large'       : ( min-width: 1600px )
+);
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+.block {
+  width: 100%;
+
+  // this query will apply from widths larger then 1200px
+  // meaning you have the same for mobile and tablet
+  @include media('large') {
+    width: 25%;
+  }
+}
+
+.block {
+  width: 100%;
+
+  // this query will apply from widths larger then 992px (landscape tablet)
+  // meaning you have the same for mobile and tablet portrait
+  @include media('medium') {
+    width: 25%;
+  }
+}
